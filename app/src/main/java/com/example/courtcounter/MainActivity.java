@@ -7,8 +7,8 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    int score = 0;
-    int scoreB = 0;
+    int teamAScore = 0;
+    int teamBScore = 0;
     TextView scoreText;
     TextView scoreBText;
 
@@ -23,34 +23,34 @@ public class MainActivity extends AppCompatActivity {
         displayForTeamB(0);
     }
 
-    public void addThree(View view) {
-        score += 3;
-        displayForTeamA(score);
+    public void addThreeTeamA(View view) {
+        teamAScore += 3;
+        displayForTeamA(teamAScore);
     }
 
-    public void addThreeB(View view) {
-        scoreB += 3;
-        displayForTeamB(scoreB);
+    public void addThreeTeamB(View view) {
+        teamBScore += 3;
+        displayForTeamB(teamBScore);
     }
 
-    public void addTwo(View view) {
-        score += 2;
-        displayForTeamA(score);
+    public void addTwoTeamA(View view) {
+        teamAScore += 2;
+        displayForTeamA(teamAScore);
     }
 
-    public void addTwoB(View view) {
-        scoreB += 2;
-        displayForTeamB(scoreB);
+    public void addTwoTeamB(View view) {
+        teamBScore += 2;
+        displayForTeamB(teamBScore);
     }
 
-    public void freeThrow(View view) {
-        score += 1;
-        displayForTeamA(score);
+    public void freeThrowTeamA(View view) {
+        teamAScore += 1;
+        displayForTeamA(teamAScore);
     }
 
-    public void freeThrowB(View view) {
-        scoreB += 1;
-        displayForTeamB(scoreB);
+    public void freeThrowTeamB(View view) {
+        teamBScore += 1;
+        displayForTeamB(teamBScore);
     }
 
     public void displayForTeamA(int score) {
@@ -59,10 +59,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Displays the given score for Team B.
+     * Displays the given teamAScore for Team B.
      */
     public void displayForTeamB(int score) {
         TextView scoreView = (TextView) findViewById(R.id.score_b_text_view);
         scoreView.setText(String.valueOf(score));
+    }
+
+    public void reset(View view) {
+        teamBScore = 0;
+        teamAScore = 0;
+        displayForTeamA(teamAScore);
+        displayForTeamB(teamBScore);
+
     }
 }
